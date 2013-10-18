@@ -1,0 +1,89 @@
+<!doctype HTML>
+<meta charset = 'utf-8'>
+<html>
+  <head>
+    <link rel='stylesheet' href='parcoords/external/d3.parcoords.css'>
+    
+    <script src='parcoords/external/d3.min.js' type='text/javascript'></script>
+    <script src='parcoords/external/d3.parcoords.js' type='text/javascript'></script>
+    
+    <style>
+    .rChart {
+      display: block;
+      margin-left: auto; 
+      margin-right: auto;
+      width: 800px;
+      height: 400px;
+    }  
+    </style>
+    
+  </head>
+  <body>
+    <div id='chart14c424ad6cc7' class='rChart parcoords'></div>  
+    
+    <script id="brushing">
+var params = {
+ "dom": "chart14c424ad6cc7",
+"width":    800,
+"height":    400,
+"padding": {
+ "top":     25,
+"left":      5,
+"bottom":     10,
+"right":      0 
+},
+"data": [
+ {
+ "Group": 1,
+"Total.Revenue": 1.1148e+08,
+"Total.Expenses": 1.0102e+08,
+"Total.Subsidy": 2.8475e+06,
+"Revenue.Less.Expenses": 1.0463e+07 
+},
+{
+ "Group": 2,
+"Total.Revenue": 2.9029e+07,
+"Total.Expenses": 2.8992e+07,
+"Total.Subsidy": 1.6917e+07,
+"Revenue.Less.Expenses":  37263 
+},
+{
+ "Group": 3,
+"Total.Revenue": 7.0337e+07,
+"Total.Expenses": 6.9313e+07,
+"Total.Subsidy": 7.9261e+06,
+"Revenue.Less.Expenses": 1.0241e+06 
+},
+{
+ "Group": 4,
+"Total.Revenue": 1.1726e+07,
+"Total.Expenses": 1.1708e+07,
+"Total.Subsidy": 8.3141e+06,
+"Revenue.Less.Expenses":  17550 
+} 
+],
+"colorby": "Total.Revenue",
+"range": [ 1.1726e+07, 1.1148e+08 ],
+"colors": [ "red", "blue" ],
+"id": "chart14c424ad6cc7" 
+}
+var getColors = d3.scale.linear()
+  .domain(params.range)
+  .range(params.colors)
+  .interpolate(d3.interpolateLab);
+
+var color = function(d) { return getColors(d[params.colorby]); };
+
+  d3.parcoords()("#" + params.dom)
+    .margin(params.padding)
+    .data(params.data)
+    .color(color)
+    .alpha(0.4)
+    .render()
+    .shadows()
+    .brushable()  // enable brushing
+    .reorderable(); // enable moving axes
+</script>
+    
+  </body>
+</html>
